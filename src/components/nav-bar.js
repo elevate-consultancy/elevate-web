@@ -1,66 +1,67 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Container } from '../styles'
-import logo from '../images/logo_primary.png'
 import styled from 'styled-components'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Container,
+} from 'reactstrap'
 
-const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  padding: 20px 10px;
-  background-color: #fff;
+import Logo from './logo'
 
-  .brand {
-    img {
-      max-width: 128px;
-      margin: 0;
-    }
-  }
-
-  .links {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
-
-    li {
-      margin: 0;
-    }
-
-    li:not(:last-child) {
-      margin-right: 5%;
-    }
+const CustomNavbar = styled.div`
+  .custom {
+    background-color: rgba(248, 249, 250, 0.9) !important
   }
 `
 
-const NavBar = () => (
-  <Container>
-    <Nav>
-      <div className="brand">
-        <a href="/">
-          <img src={logo} alt="" />
-        </a>
-      </div>
-      <ul className="links">
-        <li>
-          <Link>About Us</Link>
-        </li>
-        <li>
-          <Link>Courses</Link>
-        </li>
-        <li>
-          <Link>Services</Link>
-        </li>
-        <li>
-          <Link>Blog</Link>
-        </li>
-        <li>
-          <Link>Contact</Link>
-        </li>
-      </ul>
-    </Nav>
-  </Container>
-)
+class NavBar extends React.Component {
+  state = {
+    isOpen: false
+  }
+
+  toggle = () => this.setState(({ isOpen }) => ({
+    isOpen: !isOpen
+  }))
+
+  render() {
+    return (
+      <CustomNavbar>
+        <Navbar className="custom shadow-sm" fixed="top" color="light" light expand="md">
+          <Container>
+            <NavbarBrand href="/">
+              <Logo size={0.75}/>
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink tag={Link} to="#">About Us</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} to="#">Courses</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} to="#">Services</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} to="#">Blog</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} to="#">Contact</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+      </CustomNavbar>
+    )
+  }
+}
 
 export default NavBar
