@@ -5,8 +5,9 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import SplashScreen from '../components/splash-screen'
 
-import BgVideo from '../components/bg-video'
 import CTA from '../components/cta'
+import { StaticQuery, graphql } from 'gatsby'
+import FadeCarousel from '../components/fade-carousel'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -20,7 +21,26 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <SplashScreen />
-    <BgVideo />
+    <StaticQuery
+      query={graphql`
+        {
+          allFile(filter: { name: { regex: "/^carousel/" } }) {
+            edges {
+              node {
+                childImageSharp {
+                  fluid(maxWidth: 1200) {
+                    src
+                    srcSet
+                    sizes
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => <FadeCarousel data={data} />}
+    />
     <Wrapper>
       <CTA />
     </Wrapper>
