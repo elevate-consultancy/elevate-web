@@ -1,14 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-
+import styled from 'styled-components'
+import './layout.css'
 import NavBar from '../components/nav-bar'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+const Mtop = styled.div`
+  margin-top: ${100/16}rem;
+`
+
+
 
 const Layout = ({ children }) => (
   <React.Fragment>
     <NavBar />
-    {children}
+    <Mtop>
+      {children}
+    </Mtop>
   </React.Fragment>
 )
 

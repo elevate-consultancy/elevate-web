@@ -49,6 +49,12 @@ const CarouselWrapper = styled.div`
     opacity: 0.01;
     transition: opacity 1000ms ease-in;
   }
+
+  .transition-group,
+  .transition {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 class FadeCarousel extends Component {
@@ -81,11 +87,12 @@ class FadeCarousel extends Component {
     return (
       <CarouselWrapper>
         <div className="overlay" />
-        <TransitionGroup>
+        <TransitionGroup className="transition-group">
           <CSSTransition
             key={this.state.activeIndex}
             timeout={1000}
             classNames="fade"
+            className="transition"
           >
             <div>
               {currentImage && <img className="img" {...currentImage} />}

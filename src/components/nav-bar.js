@@ -34,14 +34,14 @@ class NavBar extends React.Component {
     return (
       <CustomNavbar>
         <Navbar
-          className="custom shadow-sm"
+          className="shadow-sm"
           fixed="top"
-          color="light"
+          color="white"
           light
           expand="md"
         >
           <Container>
-            <NavbarBrand href="/">
+            <NavbarBrand tag={Link} to="/">
               <Logo size={0.75} />
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
@@ -58,7 +58,7 @@ class NavBar extends React.Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} to="#">
+                  <NavLink tag={Link} to="/services">
                     Services
                   </NavLink>
                 </NavItem>
@@ -68,7 +68,7 @@ class NavBar extends React.Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} to="#">
+                  <NavLink tag={Link} to="/contact">
                     Contact
                   </NavLink>
                 </NavItem>

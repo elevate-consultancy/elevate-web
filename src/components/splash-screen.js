@@ -24,6 +24,7 @@ const SplashWrapper = styled.div`
   align-items: center;
   background-color: #fff;
   animation: ${fadeOut} 1s 0.25s ease-in-out forwards;
+  z-index: 1031;
 `
 
 const SplashScreen = () => (
