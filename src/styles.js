@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 /*
   $color-primary-0: #3D4F9B;	// Main Primary color
   $color-primary-1: #8795CE;
@@ -19,13 +19,17 @@ import styled from 'styled-components'
   $color-secondary-2-4: #0B5064;
 */
 
-export const Container = styled.div`
-  width: 100%;
-  max-width: 1054px;
-  padding: 0 15px;
-  margin: 0 auto;
+export const slideInRight = keyframes`
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
 `
-export const FluidWrapperDrop = styled.div`
-  width: 100%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+export const SlideInRight = styled.div`
+  animation: ${slideInRight} 0.5s 0.25s ease-in-out backwards;
 `
