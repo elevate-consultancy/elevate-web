@@ -7,7 +7,7 @@ import SplashScreen from '../components/splash-screen'
 
 import CTA from '../components/cta'
 import { StaticQuery, graphql } from 'gatsby'
-// import FadeCarousel from '../components/fade-carousel'
+import FadeCarousel from '../components/fade-carousel'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -39,7 +39,7 @@ const IndexPage = () => (
           }
         }
       `}
-      render={data => <div>hello</div>}
+      render={data => <FadeCarousel data={data} />}
     />
     <Wrapper>
       <CTA />

@@ -69,16 +69,19 @@ class FadeCarousel extends Component {
     }))
   }
 
-  interval = setInterval(this.next, 8000)
+  // interval = setInterval(this.next, 8000)
 
   stop = () => clearInterval(this.interval)
 
   start = () => (this.interval = setInterval(this.next, 8000))
 
   componentDidMount() {
-    this.setState({
-      imageData: this.props.data.allFile.edges,
-    })
+    this.setState(
+      {
+        imageData: this.props.data.allFile.edges,
+      },
+      this.start
+    )
   }
 
   render() {
