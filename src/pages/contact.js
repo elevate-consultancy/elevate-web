@@ -68,10 +68,10 @@ const Contact = () => (
             Submit
           </Button>
         </StyledForm>
-        <div className="h2 font-weight-lighter py-5 text-center text-white">
+        <div className="h2 font-weight-lighter py-5 text-center text-dark">
           OR
         </div>
-        <MapWrapper className="p-5 mx-auto mb-5">
+        <MapWrapper className="p-5 mx-auto mb-5 shadow-lg">
           <h2 className="font-weight-lighter mb-5 text-info text-center">
             Come visit us!
           </h2>

@@ -33,3 +33,18 @@ export const slideInRight = keyframes`
 export const SlideInRight = styled.div`
   animation: ${slideInRight} 1s 0.25s ease-in-out backwards;
 `
+
+export const slideInBottom = keyframes`
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+`
+
+export const SlideInBottom = styled.div`
+  animation: ${slideInBottom} 1s 0.25s ease-in-out backwards;
+`

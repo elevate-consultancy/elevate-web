@@ -90,10 +90,10 @@ const data = [
 ]
 
 const Services = () => (
-  <Layout>
+  <Layout color="white" light>
     <SEO title="Services" />
     <Container className="py-3">
-      <Heading className="pt-3 h1 font-weight-lighter text-center text-white">
+      <Heading className="pt-3 h1 font-weight-lighter text-center text-info">
         Services
       </Heading>
       <ServiceList>

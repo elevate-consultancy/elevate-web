@@ -6,6 +6,7 @@ import SEO from '../components/seo'
 import SplashScreen from '../components/splash-screen'
 
 import CTA from '../components/cta'
+import BgVideo from '../components/bg-video'
 import { StaticQuery, graphql } from 'gatsby'
 import FadeCarousel from '../components/fade-carousel'
 
@@ -21,7 +22,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <SplashScreen />
-    <StaticQuery
+    {/* <StaticQuery
       query={graphql`
         {
           allFile(filter: { name: { regex: "/^carousel/" } }) {
@@ -40,7 +41,8 @@ const IndexPage = () => (
         }
       `}
       render={data => <FadeCarousel data={data} />}
-    />
+    /> */}
+    <BgVideo />
     <Wrapper>
       <CTA />
     </Wrapper>

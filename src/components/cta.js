@@ -58,8 +58,8 @@ const CTA = () => (
         Study Abroad Today
       </p>
       <Button
-        className="px-4 text-uppercase shadow-sm slide-in-bottom"
-        color="success"
+        className="px-4 text-uppercase shadow-sm slide-in-bottom font-weight-lighter"
+        color="info"
         size="lg"
       >
         Get Started

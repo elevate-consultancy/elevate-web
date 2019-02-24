@@ -9,10 +9,10 @@ const Mtop = styled.div`
   margin-top: 100px;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, color }) => (
   <React.Fragment>
-    <NavBar />
-    <Mtop>{children}</Mtop>
+    <NavBar color={color} />
+    {children}
   </React.Fragment>
 )
 
