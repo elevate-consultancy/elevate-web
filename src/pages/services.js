@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col } from 'reactstrap'
+import { Container, Row, Col, Card, CardTitle, CardBody } from 'reactstrap'
 
 import styled, { keyframes } from 'styled-components'
 
@@ -8,7 +8,7 @@ import SEO from '../components/seo'
 
 const slideInBottom = keyframes`
   from {
-    transform: translateY(100px);
+    transform: translateY(30px);
     opacity: 0;
   }
   to {
@@ -19,7 +19,7 @@ const slideInBottom = keyframes`
 
 const slideInRight = keyframes`
 from {
-  transform: translateX(-50px);
+  transform: translateX(-20px);
   opacity: 0;
 }
 to {
@@ -28,15 +28,16 @@ to {
 }
 `
 
-const ServiceList = styled.div`
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 10px;
-  max-width: ${960 / 16}rem;
-  animation: ${slideInBottom} 0.5s 0.2s ease-in-out backwards;
+const Heading = styled.h1`
+  animation: ${slideInRight} 0.8s ease-in-out;
 `
 
-const Heading = styled.h3`
-  animation: ${slideInRight} 0.3s ease-in-out;
+const ServiceList = styled.div`
+  animation: ${slideInBottom} 1s 0.5s ease-in-out backwards;
+
+  .round-borders {
+    border-radius: 15px;
+  }
 `
 
 const data = [
@@ -92,22 +93,28 @@ const Services = () => (
   <Layout>
     <SEO title="Services" />
     <Container className="py-3">
-      <Heading className="py-4 display-4 text-center">Services</Heading>
-      <ServiceList className="shadow-lg p-5 mb-5 mx-auto">
-        {data.map(service => (
-          <Row key={service.title} className="py-4">
-            <Col sm={4}>
-              <h4 className="font-weight-light">{service.title}</h4>
+      <Heading className="pt-3 display-4 font-weight-light text-center text-white">
+        Services
+      </Heading>
+      <ServiceList>
+        <Row className="p-5 mb-5">
+          {data.map(service => (
+            <Col lg={4} md={6} key={service.title} className="mb-4">
+              <Card className="shadow-lg h-100 border-0 round-borders">
+                <CardBody>
+                  <CardTitle className="font-weight-light">
+                    {service.title}
+                  </CardTitle>
+                  <ul className="pl-3">
+                    {service.items.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </CardBody>
+              </Card>
             </Col>
-            <Col sm={8}>
-              <ul>
-                {service.items.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </Col>
-          </Row>
-        ))}
+          ))}
+        </Row>
       </ServiceList>
     </Container>
   </Layout>
