@@ -7,22 +7,29 @@ import SplashScreen from '../components/splash-screen'
 
 import CTA from '../components/cta'
 import BgVideo from '../components/bg-video'
-import { StaticQuery, graphql } from 'gatsby'
-import FadeCarousel from '../components/fade-carousel'
+// import { StaticQuery, graphql } from 'gatsby'
+// import FadeCarousel from '../components/fade-carousel'
 
 const Wrapper = styled.div`
   width: 100%;
-  min-height: calc(100vh - 101px);
+  min-height: calc(100vh - 56px);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
 `
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <SplashScreen />
-    {/* <StaticQuery
+class IndexPage extends React.Component {
+  state = {
+    hide: false,
+  }
+
+  videoLoaded = () => this.setState({ hide: true })
+  render() {
+    return (
+      <Layout color="none">
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SplashScreen hide={this.state.hide} />
+        {/* <StaticQuery
       query={graphql`
         {
           allFile(filter: { name: { regex: "/^carousel/" } }) {
@@ -42,11 +49,13 @@ const IndexPage = () => (
       `}
       render={data => <FadeCarousel data={data} />}
     /> */}
-    <BgVideo />
-    <Wrapper>
-      <CTA />
-    </Wrapper>
-  </Layout>
-)
+        <BgVideo onLoad={this.videoLoaded} />
+        <Wrapper>
+          <CTA />
+        </Wrapper>
+      </Layout>
+    )
+  }
+}
 
 export default IndexPage

@@ -20,15 +20,20 @@ const SplashWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  animation: ${fadeOut} 1s 0.25s ease-in-out forwards;
+  /* animation: ${fadeOut} 1s 0.25s ease-in-out forwards; */
   z-index: 1031;
+  transition: all 0.5s;
+  opacity: ${props => (props.hide ? 0 : 1)};
+  visibility: ${props => (props.hide ? 'hidden' : 'visible')};
 `
 
-const SplashScreen = () => (
-  <SplashWrapper>
+const SplashScreen = ({ hide }) => (
+  <SplashWrapper hide={hide}>
+    <div className="h2 font-weight-light">Preparing ...</div>
     <Logo />
   </SplashWrapper>
 )

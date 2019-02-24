@@ -77,10 +77,10 @@ const Contact = () => (
           </h2>
           <iframe
             height="450"
-            frameborder="0"
+            frameBorder="0"
             className="border-light w-100 shadow-sm"
             src="https://www.google.com/maps/embed/v1/place?q=2176-2177%2C%2012th%20Main%20Rd%2C%20L%20Block%2C%20Mullai%20Colony%2C%20Anna%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu%20600040&key=AIzaSyC-2ukmFKYk-501yUVbZlnqU5iwXtqlDRg"
-            allowfullscreen
+            allowFullScreen
           />
           <address className="text-center mt-3">
             Plot #2177/2, Rajparis Apartments,

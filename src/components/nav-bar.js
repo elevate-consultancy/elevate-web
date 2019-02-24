@@ -18,6 +18,10 @@ const CustomNavbar = styled.div`
   .custom {
     background-color: rgba(248, 249, 250, 0.8) !important;
   }
+
+  .spacing {
+    letter-spacing: 2px;
+  }
 `
 
 class NavBar extends React.Component {
@@ -36,13 +40,15 @@ class NavBar extends React.Component {
         <Navbar
           // className="shadow-sm"
           // fixed="top"
-          color={'info'}
+          color={this.props.color || 'info'}
           dark
           expand="md"
         >
           <Container>
             <NavbarBrand tag={Link} to="/">
-              <Logo size={1} />
+              <div className="font-weight-light text-uppercase spacing">
+                Elevate Consultancy
+              </div>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>

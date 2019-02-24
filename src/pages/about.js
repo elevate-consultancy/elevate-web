@@ -1,16 +1,17 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import styled from 'styled-components'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import { SlideInRight, SlideInBottom } from '../styles'
 import logo from '../images/logo_primary.png'
 import bg from '../images/backdrop.svg'
-import about_bg from '../images/about_bg.jpg'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const Img = styled.img`
+const LogoImg = styled.img`
   filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.3));
   max-width: 100%;
 `
@@ -34,21 +35,14 @@ const StyledRow = styled(Row)`
 const LargeSection = styled.div`
   width: 100%;
   padding-top: ${120 / 16}rem;
-  padding-bottom: ${420 / 16}rem;
+  padding-bottom: ${350 / 16}rem;
 `
 
 const HeroImageWrapper = styled(Row)`
   height: ${450 / 16}rem;
-  background-color: red;
   margin-top: -${300 / 16}rem;
   border-radius: 15px;
   overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 `
 
 const aboutContent = `
@@ -70,7 +64,28 @@ const About = () => (
       <SlideInBottom>
         <Container className="py-5">
           <HeroImageWrapper className="mb-5 shadow-lg">
-            <img src={about_bg} alt="" />
+            <StaticQuery
+              query={graphql`
+                query {
+                  aboutImg: file(name: { eq: "about_bg" }) {
+                    childImageSharp {
+                      fluid(maxWidth: 1200) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                }
+              `}
+              render={data => {
+                console.log(data.aboutImg.childImageSharp.fluid)
+                return (
+                  <Img
+                    fluid={data.aboutImg.childImageSharp.fluid}
+                    className="w-100 h-100"
+                  />
+                )
+              }}
+            />
           </HeroImageWrapper>
           <StyledRow className="shadow-lg p-5">
             <img src={bg} alt="" className="backdrop" />
@@ -78,7 +93,7 @@ const About = () => (
               lg={6}
               className="d-flex flex-column align-items-center justify-content-center"
             >
-              <Img src={logo} alt="" className="d-block mx-auto" />
+              <LogoImg src={logo} alt="" className="d-block mx-auto" />
               <h2 className="text-info font-weight-lighter py-3 h1">
                 Elevate Consultancy
               </h2>

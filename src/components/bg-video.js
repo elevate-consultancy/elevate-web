@@ -16,11 +16,22 @@ const VideoWrapper = styled.div`
   left: 0;
   height: 100vh;
   z-index: -1;
-`
 
-const BgVideo = () => (
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(188, 78%, 30%, 0.7);
+  }
+`
+// hsla(188, 78%, 30%, 0.6)
+
+const BgVideo = ({ onLoad }) => (
   <VideoWrapper>
-    <Video autoPlay muted loop>
+    <div className="overlay" />
+    <Video autoPlay muted loop onCanPlay={onLoad}>
       <source type="video/mp4" src={mp4} />
       <source type="video/webm" src={webm} />
     </Video>

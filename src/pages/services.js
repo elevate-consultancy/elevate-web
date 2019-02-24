@@ -90,12 +90,10 @@ const data = [
 ]
 
 const Services = () => (
-  <Layout color="white" light>
+  <Layout>
     <SEO title="Services" />
     <Container className="py-3">
-      <Heading className="pt-3 h1 font-weight-lighter text-center text-info">
-        Services
-      </Heading>
+      {/* <Heading className="pt-3 text-center text-dark">Services</Heading> */}
       <ServiceList>
         <Row className="p-5 mb-5">
           {data.map(service => (
