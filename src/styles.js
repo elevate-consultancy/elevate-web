@@ -31,5 +31,5 @@ export const slideInRight = keyframes`
 `
 
 export const SlideInRight = styled.div`
-  animation: ${slideInRight} 0.5s 0.25s ease-in-out backwards;
+  animation: ${slideInRight} 1s 0.25s ease-in-out backwards;
 `

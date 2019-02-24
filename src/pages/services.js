@@ -93,7 +93,7 @@ const Services = () => (
   <Layout>
     <SEO title="Services" />
     <Container className="py-3">
-      <Heading className="pt-3 display-4 font-weight-light text-center text-white">
+      <Heading className="pt-3 h1 font-weight-lighter text-center text-white">
         Services
       </Heading>
       <ServiceList>

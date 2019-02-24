@@ -6,17 +6,13 @@ import NavBar from '../components/nav-bar'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Mtop = styled.div`
-  margin-top: ${100/16}rem;
+  margin-top: 100px;
 `
-
-
 
 const Layout = ({ children }) => (
   <React.Fragment>
     <NavBar />
-    <Mtop>
-      {children}
-    </Mtop>
+    <Mtop>{children}</Mtop>
   </React.Fragment>
 )
 
