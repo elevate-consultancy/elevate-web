@@ -63,7 +63,7 @@ const CTA = () => (
         color="warning"
         size="lg"
         tag={Link}
-        to="/about"
+        to="/courses"
       >
         Get Started
       </Button>
