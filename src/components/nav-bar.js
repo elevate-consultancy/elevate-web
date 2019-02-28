@@ -59,7 +59,7 @@ class NavBar extends React.Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} to="#">
+                  <NavLink tag={Link} to="/courses">
                     Courses
                   </NavLink>
                 </NavItem>
