@@ -118,7 +118,7 @@ const Courses = () => (
             ​<p className="text-justify">Course price: €24,000 EUR.</p>
             <Button
               tag="a"
-              href="https://drive.google.com/open?id=1cegZVAlrss-W8XyR9ERLuOB6IStiEy6l"
+              href="/brochure.pdf"
               target="_blank"
               rel="noopener"
               color="info"

@@ -28,7 +28,14 @@ const Contact = () => (
   <Layout>
     <SlideInRight className="pt-5">
       <Container>
-        <StyledForm className="mx-auto p-5 shadow-lg">
+        <StyledForm
+          className="mx-auto p-5 shadow-lg"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-recaptcha="true"
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <h2 className="font-weight-lighter mb-5 text-info text-center">
             Reach out to us
           </h2>
@@ -79,7 +86,7 @@ const Contact = () => (
             height="450"
             frameBorder="0"
             className="border-light w-100 shadow-sm"
-            src="https://www.google.com/maps/embed/v1/place?q=2176-2177%2C%2012th%20Main%20Rd%2C%20L%20Block%2C%20Mullai%20Colony%2C%20Anna%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu%20600040&key=AIzaSyC-2ukmFKYk-501yUVbZlnqU5iwXtqlDRg"
+            src="https://www.google.com/maps/embed/v1/place?q=36M3%2BP5%20Chennai%2C%20Tamil%20Nadu&key=AIzaSyC-2ukmFKYk-501yUVbZlnqU5iwXtqlDRg"
             allowFullScreen
           />
           <address className="text-center mt-3">
