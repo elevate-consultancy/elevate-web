@@ -23,7 +23,7 @@ const VideoWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: hsla(188, 78%, 30%, 0.7);
+    background-color: rgba(0, 0, 25, 0.5);
   }
 `
 // hsla(188, 78%, 30%, 0.6)

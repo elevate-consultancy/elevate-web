@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import logo from '../images/luflogo.png'
 import brochure from '../images/brochure.jpg'
 import { SlideInBottom, SlideInRight } from '../styles'
+import SEO from '../components/seo'
 
 const CourseStyles = styled.main`
   .hero {
@@ -63,6 +64,7 @@ const CourseStyles = styled.main`
 
 const Courses = () => (
   <Layout>
+    <SEO title="Courses" />
     <CourseStyles>
       <div className="hero">
         <StaticQuery

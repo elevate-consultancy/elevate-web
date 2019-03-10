@@ -29,26 +29,6 @@ class IndexPage extends React.Component {
       <Layout color="none">
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <SplashScreen hide={this.state.hide} />
-        {/* <StaticQuery
-      query={graphql`
-        {
-          allFile(filter: { name: { regex: "/^carousel/" } }) {
-            edges {
-              node {
-                childImageSharp {
-                  fluid(maxWidth: 1200) {
-                    src
-                    srcSet
-                    sizes
-                  }
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={data => <FadeCarousel data={data} />}
-    /> */}
         <BgVideo onLoad={this.videoLoaded} />
         <Wrapper>
           <CTA />

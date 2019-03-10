@@ -60,7 +60,7 @@ const CTA = () => (
       <p className="h2  text-white text-uppercase mb-3">Study Abroad Today</p>
       <Button
         className="px-4 text-uppercase shadow-sm slide-in-bottom "
-        color="warning"
+        color="info"
         size="lg"
         tag={Link}
         to="/courses"

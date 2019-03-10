@@ -68,11 +68,11 @@ class NavBar extends React.Component {
                     Services
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink tag={Link} to="#">
                     Blog
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
                 <NavItem>
                   <NavLink tag={Link} to="/contact">
                     Contact
