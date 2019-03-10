@@ -1,12 +1,13 @@
 import React from 'react'
-import { Container, Row, Col } from 'reactstrap'
+import { Container, Row, Col, Button } from 'reactstrap'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { SlideInRight, SlideInBottom } from '../styles'
 import logo from '../images/logo_primary.png'
 import bg from '../images/backdrop.svg'
+import profile from '../images/jennifer.jpeg'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -52,6 +53,11 @@ At Elevate consultancy, we believe that we would be able to help prospective stu
 
 `
 
+const aboutJennifer = `Eunice Jennifer is the Founder and Partner of Elevate Consultancy. She has done her Post
+Graduation Degree in University of Limerick, Ireland. Also has overseas experience with
+Lufthansa Technik, Ireland as an Intern. In India, have 1 year experience as NDT engineer from
+Scanstar Pvt Ltd.`
+
 const About = () => (
   <Layout>
     <SEO title="About us" />
@@ -87,7 +93,7 @@ const About = () => (
               }}
             />
           </HeroImageWrapper>
-          <StyledRow className="shadow-lg p-5">
+          <StyledRow className="shadow-lg p-5 mb-5">
             <img src={bg} alt="" className="backdrop" />
             <Col
               lg={6}
@@ -102,6 +108,26 @@ const About = () => (
               <div className="font-weight-light text-justify text">
                 {aboutContent}
               </div>
+            </Col>
+          </StyledRow>
+          <StyledRow className="shadow-lg">
+            <Col md={6} className="p-0">
+              <img src={profile} alt="jennifer" className="img-fluid shadow" />
+            </Col>
+            <Col className="text-justify d-flex flex-column justify-content-center p-5">
+              <img src={bg} alt="" className="backdrop" />
+              <p style={{ zIndex: 2 }} className="mb-4">
+                {aboutJennifer}
+              </p>
+              <Button
+                tag={Link}
+                to="/contact"
+                style={{ zIndex: 2 }}
+                className="shadow"
+                color="info"
+              >
+                Contact
+              </Button>
             </Col>
           </StyledRow>
         </Container>
