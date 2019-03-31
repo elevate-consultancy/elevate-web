@@ -1,16 +1,17 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+// import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
-import { Container, Button } from 'reactstrap'
+// import Img from 'gatsby-image'
+import { Container } from 'reactstrap'
 import Layout from '../components/layout'
 import logo from '../images/luflogo.png'
-import brochure from '../images/brochure.jpg'
-import { SlideInBottom, SlideInRight } from '../styles'
+import { SlideInBottom } from '../styles'
 import SEO from '../components/seo'
 import bgImg from '../images/lufthansa.jpg'
 import CaptchaForm from '../components/captcha-form'
 import db from '../firebase'
+import test1 from '../images/testimonials1.jpg'
+import test2 from '../images/testimonials2.jpg'
 
 const CourseStyles = styled.main`
   .hero {
@@ -63,6 +64,10 @@ const CourseStyles = styled.main`
 
   .rounded-huge {
     border-radius: 15px;
+  }
+
+  .smaller {
+    max-width: ${800 / 16}rem;
   }
 `
 
@@ -155,6 +160,23 @@ const Courses = () => (
             </p>
             ​<p className="text-justify">Course price: €24,000 EUR.</p>
             <CaptchaForm handleSubmit={handleSubmit} />
+          </div>
+
+          <div className="mb-5 d-flex flex-column align-items-center">
+            <h3 className="text-info mb-5 display-4 font-weight-lighter">
+              Testimonials
+            </h3>
+            <img
+              src={test1}
+              className="smaller img-fluid rounded-lg shadow-lg mb-sm-3"
+              alt="testimonials"
+            />
+
+            <img
+              src={test2}
+              alt="testimonials"
+              className="smaller img-fluid rounded-lg shadow-lg"
+            />
           </div>
         </Container>
       </SlideInBottom>
