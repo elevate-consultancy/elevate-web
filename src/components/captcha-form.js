@@ -20,10 +20,10 @@ class CaptchaForm extends React.Component {
         inline
         onSubmit={e => {
           e.preventDefault()
-          // if (this.state.captchaValue) {
-          this.setState({ loading: true })
-          this.props.handleSubmit(this.state.email)
-          // }
+          if (this.state.captchaValue) {
+            this.setState({ loading: true })
+            this.props.handleSubmit(this.state.email)
+          }
         }}
       >
         <FormGroup className="mr-sm-2 flex-grow-1">
