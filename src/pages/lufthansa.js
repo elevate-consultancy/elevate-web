@@ -168,14 +168,14 @@ const Courses = () => (
             </h3>
             <img
               src={test1}
-              className="smaller img-fluid rounded-lg shadow-lg mb-sm-3"
+              className="smaller img-fluid w-100 rounded-lg shadow-lg mb-sm-3"
               alt="testimonials"
             />
 
             <img
               src={test2}
               alt="testimonials"
-              className="smaller img-fluid rounded-lg shadow-lg"
+              className="smaller img-fluid w-100 rounded-lg shadow-lg"
             />
           </div>
         </Container>
