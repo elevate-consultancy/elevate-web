@@ -10,6 +10,10 @@ import {
   NavItem,
   NavLink,
   Container,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from 'reactstrap'
 
 import Logo from './logo'
@@ -58,11 +62,29 @@ class NavBar extends React.Component {
                     About Us
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} to="/courses">
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
                     Courses
-                  </NavLink>
-                </NavItem>
+                  </DropdownToggle>
+                  <DropdownMenu className="shadow" right>
+                    <DropdownItem>
+                      <Link
+                        className="text-decoration-none text-info"
+                        to="/lufthansa"
+                      >
+                        Aviation Training
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link
+                        className="text-decoration-none text-info"
+                        to="/lufthansa"
+                      >
+                        English Through Sport
+                      </Link>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
                 <NavItem>
                   <NavLink tag={Link} to="/services">
                     Services

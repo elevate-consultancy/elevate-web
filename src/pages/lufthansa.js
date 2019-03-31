@@ -8,10 +8,13 @@ import logo from '../images/luflogo.png'
 import brochure from '../images/brochure.jpg'
 import { SlideInBottom, SlideInRight } from '../styles'
 import SEO from '../components/seo'
+import bgImg from '../images/lufthansa.jpg'
+import CaptchaForm from '../components/captcha-form'
+import db from '../firebase'
 
 const CourseStyles = styled.main`
   .hero {
-    height: ${450 / 16}rem;
+    height: ${600 / 16}rem;
     position: relative;
 
     h1 {
@@ -27,7 +30,8 @@ const CourseStyles = styled.main`
   }
 
   img {
-    object-position: top !important;
+    object-position: bottom;
+    object-fit: cover;
   }
 
   .overlay {
@@ -62,12 +66,34 @@ const CourseStyles = styled.main`
   }
 `
 
+function handleSubmit(value) {
+  const userRef = db.collection('lufthansa').doc(value)
+  userRef
+    .get()
+    .then(function(doc) {
+      if (doc.exists) {
+        return userRef.set({
+          count: doc.data().count + 1,
+        })
+      } else {
+        return userRef.set({ count: 1 })
+      }
+    })
+    .then(() => {
+      window.location.href = '/brochure.pdf'
+    })
+    .catch(error => {
+      console.log(error)
+      window.location.href = '/brochure.pdf'
+    })
+}
+
 const Courses = () => (
   <Layout>
     <SEO title="Courses" />
     <CourseStyles>
       <div className="hero">
-        <StaticQuery
+        {/* <StaticQuery
           query={graphql`
             query {
               aboutImg: file(name: { eq: "aircraft" }) {
@@ -88,8 +114,9 @@ const Courses = () => (
               />
             )
           }}
-        />
-        <div class="overlay" />
+        /> */}
+        <img src={bgImg} className="w-100 h-100 img" alt="" />
+        <div className="overlay" />
         <h1 className="p-5 text-white font-weight-lighter">
           Aviation Training
         </h1>
@@ -101,10 +128,19 @@ const Courses = () => (
             <div className="display-4 mb-5 logo-text">Lufthansa Technik</div>
           </div>
           <div className="mb-5">
-            <h2 className="h3 text-info text-center">
+            <h2 className="h3 text-info text-center mb-3">
               EASA Part 66 Aircraft Maintenance Engineer Licence Training Course
             </h2>
-            ​
+            <p className="text-justify">
+              Only 32 people in the world get the opportunity to be part of
+              Lufthansa's premium Aero-engineering program per year and work in
+              the core field across the World ! Would you like to be among the
+              32 in the world ?
+            </p>
+            <p className="text-justify">
+              Currently <strong>95%</strong> of all new engineers have been
+              placed!
+            </p>
             <p className="text-justify">
               Get your Aircraft Maintenance Licence from a world market leader
               in Aircraft Maintenance Training. Lufthansa Technik Shannon and
@@ -113,29 +149,13 @@ const Courses = () => (
               engineering professionals.
             </p>
             <p className="text-justify">
-              Registration is now open for our next course starting on 29th
-              April 2019. As there is limited space, we encourage people to
+              Registration is now open for our next course starting on 30th
+              September 2019. As there is limited space, we encourage people to
               apply as soon as possible.
             </p>
             ​<p className="text-justify">Course price: €24,000 EUR.</p>
-            <Button
-              tag="a"
-              href="/brochure.pdf"
-              target="_blank"
-              rel="noopener"
-              color="info"
-              size="lg"
-              outline
-              block
-            >
-              Download Brochure
-            </Button>
+            <CaptchaForm handleSubmit={handleSubmit} />
           </div>
-          <img
-            className="img-fluid mb-5 rounded-huge shadow-lg"
-            src={brochure}
-            alt="brochure"
-          />
         </Container>
       </SlideInBottom>
     </CourseStyles>
