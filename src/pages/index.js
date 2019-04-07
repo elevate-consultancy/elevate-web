@@ -29,7 +29,7 @@ class IndexPage extends React.Component {
       <Layout color="none">
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <SplashScreen hide={this.state.hide} />
-        <BgVideo onLoad={this.videoLoaded} />
+        <BgVideo onCanPlayThrough={this.videoLoaded} />
         <Wrapper>
           <CTA />
         </Wrapper>
