@@ -23,13 +23,15 @@ class IndexPage extends React.Component {
     hide: false,
   }
 
-  videoLoaded = () => this.setState({ hide: true })
+  videoLoaded = () => {
+    this.setState({ hide: true })
+  }
   render() {
     return (
       <Layout color="none">
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <SplashScreen hide={this.state.hide} />
-        <BgVideo onCanPlayThrough={this.videoLoaded} />
+        <BgVideo onLoad={this.videoLoaded} />
         <Wrapper>
           <CTA />
         </Wrapper>

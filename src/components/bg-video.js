@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import mp4 from '../videos/Home_work.mp4'
-import webm from '../videos/Home_work.webm'
+import cmp4 from '../videos/Home_work_compressed.mp4'
 
 const Video = styled.video`
   width: 100%;
@@ -31,9 +30,8 @@ const VideoWrapper = styled.div`
 const BgVideo = ({ onLoad }) => (
   <VideoWrapper>
     <div className="overlay" />
-    <Video autoPlay muted loop onCanPlay={onLoad}>
-      <source type="video/mp4" src={mp4} />
-      <source type="video/webm" src={webm} />
+    <Video autoPlay muted loop onCanPlayThrough={onLoad}>
+      <source type="video/mp4" src={cmp4} />
     </Video>
   </VideoWrapper>
 )
